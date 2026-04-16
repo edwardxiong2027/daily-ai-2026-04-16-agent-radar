@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Radar — April 16, 2026</title>
+  <meta name="description" content="A tiny interactive dashboard tracking today's biggest AI coding-agent releases and signals." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Daily Project · 2026-04-16</p>
+        <h1>Agent Radar</h1>
+        <p class="lede">
+          A tiny launch dashboard for today's coding-agent wave: OpenAI's expanded Codex,
+          Anthropic's Claude Opus 4.7, GitHub's cross-model "Rubber Duck", and adjacent startup/open-source signals.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#cards">Explore launches</a>
+          <a class="button" href="#opportunity">See the business angle</a>
+        </div>
+      </div>
+      <div class="hero-stats" id="hero-stats"></div>
+    </section>
+
+    <section class="toolbar">
+      <label>
+        Filter
+        <select id="category-filter">
+          <option value="all">All signals</option>
+          <option value="model">Model / product</option>
+          <option value="tooling">Tooling</option>
+          <option value="startup">Startup</option>
+          <option value="open-source">Open source</option>
+        </select>
+      </label>
+      <label>
+        Sort
+        <select id="sort-mode">
+          <option value="impact">Impact</option>
+          <option value="time">Newest first</option>
+          <option value="builders">Builder usefulness</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <h2>Why this project exists</h2>
+      <p class="section-copy">
+        The strongest AI story today isn't a single model launch — it's the convergence of coding agents,
+        background computer use, cross-model review loops, and startup demand for workflow automation.
+        Agent Radar packages that into an at-a-glance page founders and builders can actually use.
+      </p>
+    </section>
+
+    <section id="cards">
+      <div class="section-header">
+        <h2>Today's launch board</h2>
+        <p id="results-copy"></p>
+      </div>
+      <div class="grid" id="card-grid"></div>
+    </section>
+
+    <section class="two-up">
+      <article class="panel">
+        <h2>Build signals</h2>
+        <ul id="build-signals"></ul>
+      </article>
+      <article class="panel">
+        <h2>Open-source & community watch</h2>
+        <ul id="community-watch"></ul>
+      </article>
+    </section>
+
+    <section class="panel" id="opportunity">
+      <h2>Business opportunity of the day</h2>
+      <div id="opportunity-card"></div>
+    </section>
+
+    <section class="panel sources">
+      <h2>Sources</h2>
+      <ul id="sources-list"></ul>
+      <p class="footnote">
+        Sources checked during this run: OpenAI, Anthropic, GitHub Blog, TechCrunch, Hugging Face, Hacker News / GitHub Trending.
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
