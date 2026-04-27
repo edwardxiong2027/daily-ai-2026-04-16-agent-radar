@@ -1,13 +1,14 @@
 :root {
-  --bg: #07111f;
-  --panel: rgba(10, 19, 35, 0.85);
-  --panel-border: rgba(123, 162, 255, 0.15);
-  --text: #ebf2ff;
-  --muted: #a7b6d5;
-  --accent: #72e5c9;
-  --accent-2: #8aa4ff;
-  --danger: #ff8f8f;
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --bg: #f5f0e8;
+  --panel: rgba(255, 252, 247, 0.94);
+  --panel-strong: #fffdf8;
+  --panel-border: rgba(72, 50, 28, 0.14);
+  --text: #20160d;
+  --muted: #6f5b4a;
+  --accent: #ba5c2d;
+  --accent-2: #284d77;
+  --danger: #b64848;
+  --shadow: 0 24px 60px rgba(73, 47, 24, 0.09);
 }
 
 * { box-sizing: border-box; }
@@ -16,49 +17,68 @@ body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at top right, rgba(114, 229, 201, 0.16), transparent 24%),
-    radial-gradient(circle at top left, rgba(138, 164, 255, 0.18), transparent 28%),
-    linear-gradient(180deg, #07111f, #091624 55%, #07101a);
+    radial-gradient(circle at top left, rgba(186, 92, 45, 0.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(40, 77, 119, 0.12), transparent 26%),
+    linear-gradient(180deg, #f8f4ee, #f4ede4 52%, #efe5da);
   color: var(--text);
 }
 
+a { color: var(--accent-2); }
 .shell {
-  width: min(1120px, calc(100vw - 32px));
+  width: min(1180px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 32px 0 56px;
+  padding: 28px 0 56px;
 }
 
 .hero,
 .panel,
 .toolbar,
 .grid article {
-  backdrop-filter: blur(14px);
   background: var(--panel);
   border: 1px solid var(--panel-border);
-  border-radius: 24px;
+  border-radius: 28px;
   box-shadow: var(--shadow);
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.4fr 0.9fr;
+  grid-template-columns: 1.25fr 0.9fr;
   gap: 24px;
-  padding: 28px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(186, 92, 45, 0.12), transparent 72%);
+  pointer-events: none;
 }
 
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--accent);
-  font-size: 0.78rem;
-  margin: 0 0 12px;
+  font-size: 0.76rem;
+  margin: 0 0 14px;
+  font-weight: 700;
 }
 
 h1, h2, h3, p { margin-top: 0; }
-h1 { font-size: clamp(2.4rem, 5vw, 4rem); margin-bottom: 12px; }
-h2 { font-size: clamp(1.35rem, 2vw, 1.8rem); margin-bottom: 12px; }
-.lede, .section-copy, .footnote, .meta, li { color: var(--muted); line-height: 1.6; }
-.section-copy { max-width: 72ch; }
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.9rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  margin-bottom: 16px;
+  max-width: 9ch;
+}
+h2 { font-size: clamp(1.4rem, 2vw, 2rem); margin-bottom: 12px; }
+.lede, .section-copy, .footnote, .meta, li { color: var(--muted); line-height: 1.65; }
+.section-copy { max-width: 76ch; font-size: 1.02rem; }
 
 .hero-actions {
   display: flex;
@@ -70,30 +90,33 @@ h2 { font-size: clamp(1.35rem, 2vw, 1.8rem); margin-bottom: 12px; }
 .button {
   text-decoration: none;
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(32, 22, 13, 0.14);
   border-radius: 999px;
   padding: 12px 18px;
-  font-weight: 600;
+  font-weight: 700;
+  background: rgba(255,255,255,0.55);
 }
 .button.primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #04111c;
+  background: linear-gradient(135deg, var(--accent), #dd8455);
+  color: #fff7f0;
   border: none;
 }
 
 .hero-stats {
   display: grid;
   gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .stat {
-  padding: 16px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--panel-strong);
+  border: 1px solid rgba(32, 22, 13, 0.09);
 }
 .stat .label { color: var(--muted); font-size: 0.88rem; }
-.stat .value { font-size: 1.7rem; font-weight: 700; margin-top: 4px; }
+.stat .value { font-size: 1.9rem; font-weight: 800; margin-top: 4px; letter-spacing: -0.04em; }
 
 .toolbar {
   display: flex;
@@ -101,18 +124,20 @@ h2 { font-size: clamp(1.35rem, 2vw, 1.8rem); margin-bottom: 12px; }
   gap: 16px;
   padding: 18px 20px;
   margin: 24px 0;
+  align-items: end;
 }
 label {
   display: grid;
   gap: 8px;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--muted);
+  min-width: 180px;
 }
 select {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.72);
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
+  border: 1px solid rgba(32,22,13,0.14);
+  border-radius: 14px;
   padding: 10px 12px;
 }
 
@@ -129,9 +154,9 @@ select {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
-
 .grid article {
-  padding: 20px;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,249,243,0.95));
 }
 
 .badges {
@@ -144,11 +169,13 @@ select {
   border-radius: 999px;
   font-size: 0.76rem;
   padding: 6px 10px;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(32,22,13,0.12);
+  color: var(--muted);
+  background: rgba(255,255,255,0.62);
 }
-.badge.high { color: #00180f; background: var(--accent); border: none; }
-.badge.medium { color: #dbe6ff; background: rgba(138,164,255,0.22); }
-.badge.low { color: #ffd9d9; background: rgba(255, 143, 143, 0.18); }
+.badge.high { color: #fff7f0; background: var(--accent); border: none; }
+.badge.medium { color: #16344f; background: rgba(40,77,119,0.14); border-color: rgba(40,77,119,0.12); }
+.badge.low { color: #7c2c2c; background: rgba(182,72,72,0.14); border-color: rgba(182,72,72,0.16); }
 
 .card-meta {
   display: flex;
@@ -166,9 +193,9 @@ select {
   margin-top: 18px;
 }
 .card-links a {
-  color: var(--accent);
+  color: var(--accent-2);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .two-up {
@@ -192,16 +219,13 @@ select {
 .rating-pill {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.09);
+  background: rgba(40,77,119,0.08);
+  border: 1px solid rgba(40,77,119,0.14);
 }
 
-.sources ul {
-  padding-left: 20px;
-}
-.sources a {
-  color: var(--accent);
-}
+.sources ul { padding-left: 20px; }
+.sources a { color: var(--accent-2); }
+.footnote { font-size: 0.92rem; }
 
 @media (max-width: 860px) {
   .hero,
